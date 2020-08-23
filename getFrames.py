@@ -1,9 +1,6 @@
 import sys
 import argparse
-
 import cv2
-print(cv2.__version__)
-
 
 def getImages(pathIn, pathOut):
     pathIn = 'C:\\Users\\kunal\\Desktop\\Trial\\Video\\1999187004.mp4'
@@ -18,7 +15,7 @@ def getImages(pathIn, pathOut):
         cv2.imwrite(pathOut + "\\frame%d.jpg" % count, image)     # save frame as JPEG file
         count = count + 1
     while not success:
-        print('nothing to get frame from')
+        print('nothing to get a frame from')
         exit()
 
 
