@@ -5,15 +5,15 @@ import cv2
 print(cv2.__version__)
 
 
-def extractImages(pathIn, pathOut):
+def getImages(pathIn, pathOut):
     pathIn = 'C:\\Users\\kunal\\Desktop\\Trial\\Video\\1999187004.mp4'
     pathOut = 'C:\\Users\\kunal\\Desktop\\Trial\\Frames'
     count = 0
-    vidcap = cv2.VideoCapture(pathIn)
-    success, image = vidcap.read()
+    video = cv2.VideoCapture(pathIn)
+    success, image = video.read()
     while success:
-        vidcap.set(cv2.CAP_PROP_POS_MSEC, (count*1000))    # added this line
-        success, image = vidcap.read()
+        video.set(cv2.CAP_PROP_POS_MSEC, (count*1000))    # added this line
+        success, image = video.read()
         print('Read a new frame: ', success)
         cv2.imwrite(pathOut + "\\frame%d.jpg" % count, image)     # save frame as JPEG file
         count = count + 1
@@ -28,4 +28,4 @@ if __name__ == "__main__":
     a.add_argument("--pathOut", help="path to images")
     args = a.parse_args()
     print(args)
-    extractImages(args.pathIn, args.pathOut)
+    getImages(args.pathIn, args.pathOut)
